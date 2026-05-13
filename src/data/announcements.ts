@@ -1,0 +1,68 @@
+import type { Announcement } from '../types';
+
+export const announcements: Announcement[] = [
+  {
+    id: 1,
+    title: 'Admissions Open for 2025-2026 Academic Year',
+    date: '2025-03-01',
+    category: 'Admission',
+    content: 'Applications are now being accepted for classes I through XII for the upcoming academic year. Early bird discount available until March 31st.',
+    isNew: true,
+  },
+  {
+    id: 2,
+    title: 'Annual Sports Day — March 15, 2025',
+    date: '2025-03-05',
+    category: 'Event',
+    content: 'Join us for our Annual Sports Day celebrations. Events include track and field, team sports, and cultural performances.',
+    isNew: true,
+  },
+  {
+    id: 3,
+    title: 'Half-Yearly Examination Schedule Released',
+    date: '2025-02-20',
+    category: 'Academic',
+    content: 'The half-yearly examination timetable for all classes has been published. Please check the academic calendar for details.',
+    isNew: false,
+  },
+  {
+    id: 4,
+    title: 'Pongal Holiday — January 14-17',
+    date: '2025-01-10',
+    category: 'Holiday',
+    content: 'School will remain closed from January 14 to January 17 on account of Pongal celebrations. Classes resume on January 18.',
+    isNew: false,
+  },
+  {
+    id: 5,
+    title: 'Science Exhibition Winners Announced',
+    date: '2025-02-28',
+    category: 'Academic',
+    content: 'Congratulations to all participants and winners of the Inter-School Science Exhibition held on February 25, 2025.',
+    isNew: true,
+  },
+  {
+    id: 6,
+    title: 'Parent-Teacher Meeting — March 20',
+    date: '2025-03-08',
+    category: 'General',
+    content: 'Parents are requested to attend the PTM scheduled for March 20, 2025 from 9:00 AM to 1:00 PM.',
+    isNew: true,
+  },
+  {
+    id: 7,
+    title: 'Summer Camp Registrations Open',
+    date: '2025-03-10',
+    category: 'Event',
+    content: 'Registrations for the Summer Camp 2025 are now open. Activities include arts, sports, coding, and robotics.',
+    isNew: true,
+  },
+  {
+    id: 8,
+    title: 'Republic Day Celebrations',
+    date: '2025-01-22',
+    category: 'Event',
+    content: 'The school celebrated Republic Day with flag hoisting, patriotic songs, and cultural programs by students.',
+    isNew: false,
+  },
+];
