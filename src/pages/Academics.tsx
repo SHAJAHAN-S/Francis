@@ -121,7 +121,7 @@ export default function Academics() {
                 <FiDownload size={40} className="text-primary mb-4" />
                 <h3 className="font-display font-bold text-primary text-lg mb-2">Academic Calendar</h3>
                 <p className="text-gray-mid font-body text-sm mb-6">Download the complete 2025-26 academic calendar</p>
-                <button className="btn btn-primary" onClick={() => alert('Calendar PDF coming soon.')}>Download PDF</button>
+                <a href="/academic-calendar.pdf" download className="btn btn-primary">Download PDF</a>
               </div>
             </div>
           </div>

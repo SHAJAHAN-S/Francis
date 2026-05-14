@@ -19,8 +19,34 @@ export default function PayFees() {
   const selectedFee = feeData.find(f => f.cls === selectedClass);
 
   const handlePayment = () => {
-    // Razorpay integration placeholder
-    setPaymentDone(true);
+    if (!selectedFee) return;
+
+    const options = {
+      key: import.meta.env.VITE_RAZORPAY_KEY_ID || 'dummy_key',
+      amount: selectedFee.total * 100, // amount in paisa
+      currency: 'INR',
+      name: 'St. Francis Mat. Hr. School',
+      description: `Fee Payment for ${studentName} (Class ${selectedClass})`,
+      image: '/favicon.svg',
+      handler: function () {
+        setPaymentDone(true);
+      },
+      prefill: {
+        name: studentName,
+      },
+      theme: {
+        color: '#1A3C6E',
+      },
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => {
+      // @ts-ignore
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    };
+    document.body.appendChild(script);
   };
 
   return (

@@ -108,7 +108,6 @@ export default function Hero() {
               href="/school-prospectus.pdf"
               download
               className="btn border-2 border-secondary/40 text-secondary hover:bg-secondary/10 backdrop-blur-sm text-base px-6 py-4"
-              onClick={(e) => { e.preventDefault(); alert('Prospectus PDF will be available soon. Contact us for a copy.'); }}
             >
               <FiDownload className="mr-1" />
               {t('hero.prospectus')}

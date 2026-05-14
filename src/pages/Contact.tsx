@@ -37,13 +37,18 @@ export default function Contact() {
     e.preventDefault();
     if (validate()) {
       // EmailJS integration - replace with your service/template/public key
-      emailjs.send('service_xxxxx', 'template_contact', {
-        from_name: form.name,
-        from_email: form.email,
-        phone: form.phone,
-        subject: form.subject,
-        message: form.message,
-      }, 'public_key_xxxxx').catch(() => {});
+      emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_CONTACT,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          phone: form.phone,
+          subject: form.subject,
+          message: form.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      ).catch(() => {});
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
       setForm(initial);
