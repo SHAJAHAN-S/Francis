@@ -109,10 +109,10 @@ export default function Navbar() {
                 <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-primary font-display font-bold text-lg leading-tight">
+                <h1 className="text-success font-display font-bold text-lg leading-tight">
                   St. Francis Matric Higher Secondary School
                 </h1>
-                <p className="text-gray-mid text-xs font-label tracking-wider uppercase">
+                <p className="text-primary text-xs font-label tracking-wider uppercase font-bold">
                   Assisi Nagar, Saram, Tindivanam
                 </p>
               </div>

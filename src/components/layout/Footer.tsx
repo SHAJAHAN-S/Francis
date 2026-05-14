@@ -41,10 +41,10 @@ export default function Footer() {
                 <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <h3 className="text-white font-display font-bold text-lg leading-tight">
+                <h3 className="text-success font-display font-bold text-lg leading-tight">
                   St. Francis Matric
                 </h3>
-                <p className="text-gray-400 text-xs font-label tracking-wider uppercase">
+                <p className="text-primary text-xs font-label tracking-wider uppercase font-bold">
                   Higher Secondary School
                 </p>
               </div>
