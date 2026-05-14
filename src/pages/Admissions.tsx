@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { FiCheck, FiChevronDown, FiChevronUp, FiSend } from 'react-icons/fi';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { FAQSchema } from '../components/common/SchemaMarkup';
 import type { AdmissionFormData } from '../types';
+import emailjs from '@emailjs/browser';
 
 const steps = [
   { num: '01', title: 'Inquiry', desc: 'Fill the online inquiry form or visit the school office.' },
@@ -52,7 +54,22 @@ export default function Admissions() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) { setSubmitted(true); setTimeout(() => setSubmitted(false), 4000); setForm(initial); }
+    if (validate()) {
+      // EmailJS integration - replace with your service/template/public key
+      emailjs.send('service_xxxxx', 'template_admission', {
+        student_name: form.studentName,
+        dob: form.dob,
+        class: form.classApplying,
+        parent_name: form.parentName,
+        mobile: form.mobile,
+        email: form.email,
+        address: form.address,
+        message: form.message,
+      }, 'public_key_xxxxx').catch(() => {});
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setForm(initial);
+    }
   };
 
   const update = (field: keyof AdmissionFormData, value: string) => {
@@ -65,7 +82,10 @@ export default function Admissions() {
       <Helmet>
         <title>Admissions — ST. Francis Mat. Hr. School</title>
         <meta name="description" content="Admission process, eligibility, fees, and inquiry form for St. Francis School." />
+        <meta property="og:title" content="Admissions — St. Francis Mat. Hr. School" />
+        <meta property="og:description" content="Admissions Open 2025-26. Apply now for Classes I to XII." />
       </Helmet>
+      <FAQSchema faqs={faqs} />
       <main>
         <section className="bg-gradient-to-br from-primary via-primary-dark to-primary py-20 relative overflow-hidden">
           <div className="absolute inset-0 pointer-events-none"><div className="absolute top-10 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl" /></div>

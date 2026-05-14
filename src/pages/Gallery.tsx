@@ -43,6 +43,8 @@ export default function Gallery() {
       <Helmet>
         <title>Gallery — ST. Francis Mat. Hr. School</title>
         <meta name="description" content="Photo gallery of events, sports, campus, and activities at St. Francis School." />
+        <meta property="og:title" content="Gallery — St. Francis Mat. Hr. School" />
+        <meta property="og:description" content="Browse photos of campus, events, and activities." />
       </Helmet>
       <main>
         <section className="bg-gradient-to-br from-primary via-primary-dark to-primary py-20 relative overflow-hidden">
@@ -76,13 +78,15 @@ export default function Gallery() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filtered.map((img, i) => (
               <div key={img.id} onClick={() => openLightbox(img.id)}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(img.id); } }}
+                role="button" tabIndex={0} aria-label={`View ${img.caption}`}
                 className="group relative aspect-square rounded-xl overflow-hidden cursor-pointer card-hover-lift"
                 style={{ animationDelay: `${i * 50}ms` }}>
                 <div className={`absolute inset-0 bg-gradient-to-br ${colors[img.category] || 'from-gray-400 to-gray-600'} flex items-center justify-center`}>
                   <FiImage size={40} className="text-white/30" />
                 </div>
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-300 flex items-end">
-                  <div className="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 w-full">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 group-focus:bg-black/50 transition-all duration-300 flex items-end">
+                  <div className="p-4 translate-y-full group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 w-full">
                     <span className="text-xs text-white/80 font-label uppercase tracking-wider">{img.category} · {img.year}</span>
                     <p className="text-white font-body text-sm mt-1">{img.caption}</p>
                   </div>

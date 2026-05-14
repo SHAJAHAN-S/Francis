@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown } from 'react-icons/fi';
+import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown, FiGlobe, FiLogIn } from 'react-icons/fi';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '../../i18n/LanguageContext';
 import type { NavLink } from '../../types';
 
 const navLinks: NavLink[] = [
@@ -23,6 +24,7 @@ const navLinks: NavLink[] = [
       { label: 'Primary (I–V)', path: '/academics#primary' },
       { label: 'Middle (VI–VIII)', path: '/academics#middle' },
       { label: 'High School (IX–X)', path: '/academics#high' },
+      { label: 'Hr. Sec. (XI–XII)', path: '/academics#hrsec' },
       { label: 'Curriculum', path: '/academics#curriculum' },
     ],
   },
@@ -34,11 +36,18 @@ const navLinks: NavLink[] = [
   { label: 'Contact', path: '/contact' },
 ];
 
+const navLabelsTamil: Record<string, string> = {
+  'Home': 'முகப்பு', 'About': 'எங்களைப் பற்றி', 'Academics': 'கல்வி',
+  'Admissions': 'சேர்க்கை', 'Faculty': 'ஆசிரியர்கள்', 'Gallery': 'படத் தொகுப்பு',
+  'News': 'செய்திகள்', 'Events': 'நிகழ்வுகள்', 'Contact': 'தொடர்பு',
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { lang, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -56,6 +65,8 @@ export default function Navbar() {
     return location.pathname.startsWith(path.split('#')[0]);
   };
 
+  const getLabel = (label: string) => lang === 'ta' ? (navLabelsTamil[label] || label) : label;
+
   return (
     <header className="sticky top-0 z-50">
       {/* Top Bar */}
@@ -72,6 +83,23 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-4">
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-xs font-label"
+              aria-label="Toggle language"
+            >
+              <FiGlobe size={12} />
+              <span>{lang === 'en' ? 'தமிழ்' : 'English'}</span>
+            </button>
+            {/* Parent Login */}
+            <Link to="/portal" className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/20 hover:bg-secondary/40 transition-colors text-xs font-label text-secondary">
+              <FiLogIn size={12} />
+              <span>{lang === 'en' ? 'Parent Login' : 'உள்நுழைவு'}</span>
+            </Link>
+            {/* Divider */}
+            <span className="w-px h-4 bg-white/20" />
+            {/* Social Links */}
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-secondary transition-colors"><FaFacebookF size={14} /></a>
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-secondary transition-colors"><FaYoutube size={14} /></a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-secondary transition-colors"><FaInstagram size={14} /></a>
@@ -85,6 +113,8 @@ export default function Navbar() {
         className={`bg-white transition-all duration-300 ${
           scrolled ? 'shadow-lg' : 'shadow-sm'
         }`}
+        role="navigation"
+        aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
@@ -123,7 +153,7 @@ export default function Navbar() {
                         : 'text-gray-dark hover:text-primary'
                     }`}
                   >
-                    {link.label}
+                    {getLabel(link.label)}
                     {link.children && <FiChevronDown size={14} className={`transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                     <span
                       className={`absolute bottom-0 left-3 right-3 h-0.5 bg-secondary transition-transform origin-left ${
@@ -133,12 +163,13 @@ export default function Navbar() {
                   </Link>
                   {/* Dropdown */}
                   {link.children && activeDropdown === link.label && (
-                    <div className="absolute top-full left-0 mt-0 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fade-in z-50">
+                    <div className="absolute top-full left-0 mt-0 w-56 bg-white rounded-lg shadow-xl border border-gray-100 py-2 animate-fade-in z-50" role="menu">
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           to={child.path}
                           className="block px-4 py-2.5 text-sm text-gray-dark hover:bg-accent hover:text-primary transition-colors font-body"
+                          role="menuitem"
                         >
                           {child.label}
                         </Link>
@@ -150,22 +181,29 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 rounded-lg text-gray-dark hover:bg-gray-100 transition-colors"
-              onClick={() => setIsOpen(!isOpen)}
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-            </button>
+            <div className="flex items-center gap-2 lg:hidden">
+              {/* Mobile Language Toggle */}
+              <button onClick={toggleLanguage} className="p-2 rounded-lg text-gray-dark hover:bg-gray-100 transition-colors" aria-label="Toggle language">
+                <FiGlobe size={20} />
+              </button>
+              <button
+                className="p-2 rounded-lg text-gray-dark hover:bg-gray-100 transition-colors"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isOpen}
+              >
+                {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? 'max-h-[600px] border-t border-gray-100' : 'max-h-0'
+            isOpen ? 'max-h-[700px] border-t border-gray-100' : 'max-h-0'
           }`}
+          role="menu"
         >
           <div className="px-4 py-4 space-y-1 bg-white">
             {navLinks.map((link) => (
@@ -178,8 +216,9 @@ export default function Navbar() {
                         ? 'bg-accent text-primary'
                         : 'text-gray-dark hover:bg-gray-50'
                     }`}
+                    role="menuitem"
                   >
-                    {link.label}
+                    {getLabel(link.label)}
                   </Link>
                   {link.children && (
                     <button
@@ -198,6 +237,7 @@ export default function Navbar() {
                         key={child.label}
                         to={child.path}
                         className="block px-4 py-2 text-sm text-gray-mid hover:text-primary transition-colors font-body"
+                        role="menuitem"
                       >
                         {child.label}
                       </Link>
@@ -206,6 +246,15 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            {/* Mobile Extra Links */}
+            <div className="pt-4 mt-4 border-t border-gray-100 space-y-1">
+              <Link to="/portal" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-primary bg-accent rounded-lg">
+                <FiLogIn size={16} /> {lang === 'en' ? 'Parent Login' : 'பெற்றோர் உள்நுழைவு'}
+              </Link>
+              <Link to="/pay-fees" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-gray-dark hover:bg-gray-50 rounded-lg">
+                💰 {lang === 'en' ? 'Pay Fees Online' : 'ஆன்லைன் கட்டணம்'}
+              </Link>
+            </div>
             {/* Mobile Contact Info */}
             <div className="pt-4 mt-4 border-t border-gray-100">
               <a href="tel:+914147123456" className="flex items-center gap-3 px-4 py-2 text-sm text-gray-mid">

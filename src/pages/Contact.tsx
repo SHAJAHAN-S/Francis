@@ -5,6 +5,7 @@ import { FiMapPin, FiPhone, FiMail, FiClock, FiSend } from 'react-icons/fi';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import type { ContactFormData } from '../types';
+import emailjs from '@emailjs/browser';
 
 const contactInfo = [
   { icon: <FiMapPin size={24} />, title: 'Address', content: 'Saram, Tindivanam - 604001,\nVillupuram District, Tamil Nadu, India', color: 'from-blue-500 to-primary' },
@@ -34,7 +35,19 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (validate()) { setSubmitted(true); setTimeout(() => setSubmitted(false), 4000); setForm(initial); }
+    if (validate()) {
+      // EmailJS integration - replace with your service/template/public key
+      emailjs.send('service_xxxxx', 'template_contact', {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        subject: form.subject,
+        message: form.message,
+      }, 'public_key_xxxxx').catch(() => {});
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setForm(initial);
+    }
   };
 
   const update = (field: keyof ContactFormData, value: string) => {
@@ -46,7 +59,9 @@ export default function Contact() {
     <>
       <Helmet>
         <title>Contact Us — ST. Francis Mat. Hr. School</title>
-        <meta name="description" content="Get in touch with St. Francis School, Saram, Tindivanam. Address, phone, email, and contact form." />
+        <meta name="description" content="Get in touch with St. Francis School, Saram, Tindivanam." />
+        <meta property="og:title" content="Contact Us — St. Francis Mat. Hr. School" />
+        <meta property="og:description" content="Address, phone, email, and contact form for St. Francis School." />
       </Helmet>
       <main>
         <section className="bg-gradient-to-br from-primary via-primary-dark to-primary py-20 relative overflow-hidden">

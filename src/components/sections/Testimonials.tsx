@@ -87,7 +87,7 @@ export default function Testimonials() {
               </div>
 
               {/* Card */}
-              <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 relative">
+              <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 relative" aria-live="polite" aria-atomic="true">
                 {/* Stars */}
                 <div className="flex gap-1 mb-6">
                   {Array.from({ length: 5 }).map((_, i) => (

@@ -65,8 +65,11 @@ export default function Faculty() {
               <h2 className="text-2xl font-display font-bold text-primary mb-8 text-center">School Leadership</h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {leaders.map(member => (
-                  <div key={member.id} className="card card-hover-lift border border-gray-100 hover:border-secondary/30 overflow-hidden cursor-pointer"
-                    onMouseEnter={() => setFlipped(member.id)} onMouseLeave={() => setFlipped(null)}>
+                  <div key={member.id}
+                    className="card card-hover-lift border border-gray-100 hover:border-secondary/30 overflow-hidden cursor-pointer"
+                    onClick={() => setFlipped(flipped === member.id ? null : member.id)}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFlipped(flipped === member.id ? null : member.id); } }}
+                    role="button" tabIndex={0} aria-label={`View details for ${member.name}`}>
                     {flipped === member.id ? (
                       <div className="p-6 bg-primary text-white min-h-[280px] flex flex-col justify-center animate-fade-in">
                         <h3 className="font-display font-bold text-xl text-secondary mb-3">{member.name}</h3>
@@ -94,8 +97,11 @@ export default function Faculty() {
             {others.length > 0 && <h2 className="text-2xl font-display font-bold text-primary mb-8 text-center">Teaching Staff</h2>}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {others.map(member => (
-                <div key={member.id} className="card card-hover-lift border border-gray-100 hover:border-secondary/30 overflow-hidden cursor-pointer"
-                  onMouseEnter={() => setFlipped(member.id)} onMouseLeave={() => setFlipped(null)}>
+                <div key={member.id}
+                  className="card card-hover-lift border border-gray-100 hover:border-secondary/30 overflow-hidden cursor-pointer"
+                  onClick={() => setFlipped(flipped === member.id ? null : member.id)}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setFlipped(flipped === member.id ? null : member.id); } }}
+                  role="button" tabIndex={0} aria-label={`View details for ${member.name}`}>
                   {flipped === member.id ? (
                     <div className="p-5 bg-primary text-white min-h-[220px] flex flex-col justify-center animate-fade-in">
                       <h3 className="font-display font-bold text-secondary mb-2">{member.name}</h3>

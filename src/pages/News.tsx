@@ -6,6 +6,8 @@ import { FiSearch, FiCalendar, FiArrowLeft, FiArrowRight, FiImage } from 'react-
 import { newsItems } from '../data/news';
 import { formatDate, getCategoryColor } from '../utils/helpers';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SocialShare from '../components/common/SocialShare';
+import { ArticleSchema } from '../components/common/SchemaMarkup';
 
 const categories = ['All', 'Achievement', 'Academic', 'Sports', 'Events'];
 
@@ -132,7 +134,11 @@ export function NewsDetail() {
       <Helmet>
         <title>{news.title} — ST. Francis Mat. Hr. School</title>
         <meta name="description" content={news.excerpt} />
+        <meta property="og:title" content={news.title} />
+        <meta property="og:description" content={news.excerpt} />
+        <meta property="og:type" content="article" />
       </Helmet>
+      <ArticleSchema title={news.title} date={news.date} excerpt={news.excerpt} url={typeof window !== 'undefined' ? window.location.href : ''} />
       <main>
         <section className="bg-gradient-to-br from-primary via-primary-dark to-primary py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -151,6 +157,9 @@ export function NewsDetail() {
             </div>
             <div className="prose prose-lg max-w-none font-body text-gray-dark leading-relaxed">
               {news.content.split('\n\n').map((p, i) => <p key={i} className="mb-4">{p}</p>)}
+            </div>
+            <div className="border-t border-gray-100 pt-6 mt-8">
+              <SocialShare title={news.title} description={news.excerpt} />
             </div>
           </article>
         </section>

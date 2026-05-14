@@ -3,8 +3,11 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { useCountUp } from '../../hooks/useCountUp';
 import type { StatItem } from '../../types';
 
+const FOUNDING_YEAR = 1994;
+const yearsOfExcellence = new Date().getFullYear() - FOUNDING_YEAR;
+
 const stats: (StatItem & { iconComponent: React.ReactNode })[] = [
-  { label: 'Years of Excellence', value: 30, suffix: '+', icon: 'award', iconComponent: <FiAward size={32} /> },
+  { label: 'Years of Excellence', value: yearsOfExcellence, suffix: '+', icon: 'award', iconComponent: <FiAward size={32} /> },
   { label: 'Students Enrolled', value: 1200, suffix: '+', icon: 'users', iconComponent: <FiUsers size={32} /> },
   { label: 'Qualified Faculty', value: 50, suffix: '+', icon: 'book', iconComponent: <FiBookOpen size={32} /> },
   { label: '10th Board Pass %', value: 98, suffix: '%', icon: 'star', iconComponent: <FiStar size={32} /> },

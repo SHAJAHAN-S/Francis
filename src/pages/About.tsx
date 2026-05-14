@@ -13,7 +13,7 @@ const milestones = [
   { year: '2010', title: 'Computer Lab Expansion', desc: '40 systems with high-speed internet.' },
   { year: '2015', title: 'Sports Complex', desc: 'Cricket, basketball, and athletics facilities.' },
   { year: '2020', title: 'Digital Classrooms', desc: 'Smart boards and projectors introduced.' },
-  { year: '2024', title: '30 Years of Excellence', desc: '1200+ students and 50+ faculty.' },
+  { year: '2024', title: `${new Date().getFullYear() - 1994} Years of Excellence`, desc: '1200+ students and 50+ faculty.' },
 ];
 
 const infra = [
@@ -42,6 +42,8 @@ export default function About() {
       <Helmet>
         <title>About Us — ST. Francis Mat. Hr. School</title>
         <meta name="description" content="History, vision, mission, and infrastructure of St. Francis School, Saram." />
+        <meta property="og:title" content="About Us — St. Francis Mat. Hr. School" />
+        <meta property="og:description" content="Learn about our history, vision, and campus infrastructure." />
       </Helmet>
       <main>
         {/* Header */}

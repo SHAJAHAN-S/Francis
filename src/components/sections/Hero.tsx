@@ -1,10 +1,16 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
+import { FiArrowRight, FiDownload } from 'react-icons/fi';
+import { useLanguage } from '../../i18n/LanguageContext';
+
+const FOUNDING_YEAR = 1994;
 
 export default function Hero() {
+  const { t } = useLanguage();
+  const yearsOfExcellence = new Date().getFullYear() - FOUNDING_YEAR;
+
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden" role="banner">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0">
         <div
@@ -33,7 +39,7 @@ export default function Hero() {
       </div>
 
       {/* Floating decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-20 left-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/5 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: '1.5s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-secondary/10 rounded-full" />
@@ -52,7 +58,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-label tracking-wider">
-              Affiliated to Tamil Nadu State Board
+              {t('hero.badge')}
             </span>
           </motion.div>
 
@@ -63,9 +69,9 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight mb-6"
           >
-            Nurturing{' '}
-            <span className="text-secondary">Excellence</span>{' '}
-            Since 1994
+            {t('hero.title1')}{' '}
+            <span className="text-secondary">{t('hero.title2')}</span>{' '}
+            {t('hero.title3')}
           </motion.h1>
 
           {/* Subtitle */}
@@ -75,9 +81,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/80 font-body leading-relaxed mb-10 max-w-2xl"
           >
-            St. Francis Matriculation Higher Secondary School, Saram, Tindivanam — 
-            Where tradition meets modern education, shaping tomorrow's leaders with 
-            values, knowledge, and character.
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -91,15 +95,24 @@ export default function Hero() {
               to="/admissions"
               className="btn bg-secondary text-white hover:bg-secondary-light shadow-lg shadow-secondary/30 hover:shadow-xl hover:shadow-secondary/40 text-base px-8 py-4"
             >
-              Apply for Admission
+              {t('hero.cta1')}
               <FiArrowRight className="ml-1" />
             </Link>
             <Link
               to="/about"
               className="btn border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm text-base px-8 py-4"
             >
-              Explore Our School
+              {t('hero.cta2')}
             </Link>
+            <a
+              href="/school-prospectus.pdf"
+              download
+              className="btn border-2 border-secondary/40 text-secondary hover:bg-secondary/10 backdrop-blur-sm text-base px-6 py-4"
+              onClick={(e) => { e.preventDefault(); alert('Prospectus PDF will be available soon. Contact us for a copy.'); }}
+            >
+              <FiDownload className="mr-1" />
+              {t('hero.prospectus')}
+            </a>
           </motion.div>
 
           {/* Quick Stats */}
@@ -110,7 +123,7 @@ export default function Hero() {
             className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-white/10"
           >
             {[
-              { value: '30+', label: 'Years' },
+              { value: `${yearsOfExcellence}+`, label: 'Years' },
               { value: '1200+', label: 'Students' },
               { value: '98%', label: 'Pass Rate' },
               { value: '50+', label: 'Faculty' },
@@ -125,7 +138,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom wave */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 120L60 105C120 90 240 60 360 52.5C480 45 600 60 720 67.5C840 75 960 75 1080 67.5C1200 60 1320 45 1380 37.5L1440 30V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>
