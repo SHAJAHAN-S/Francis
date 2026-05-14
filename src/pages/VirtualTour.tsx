@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiPlay, FiChevronRight } from 'react-icons/fi';
+import { FiMapPin, FiPlay, FiChevronRight, FiX } from 'react-icons/fi';
 
 const areas = [
   { id: 1, name: 'Main Entrance & Campus', desc: 'The welcoming front gate and campus grounds with lush greenery.', color: 'from-blue-400 to-blue-600' },
@@ -16,6 +16,7 @@ const areas = [
 
 export default function VirtualTour() {
   const [active, setActive] = useState(0);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   return (
     <>
@@ -40,12 +41,12 @@ export default function VirtualTour() {
           <div className="card p-8 md:p-12 bg-gradient-to-r from-primary via-primary-dark to-primary text-white text-center mb-16 relative overflow-hidden">
             <div className="absolute inset-0 pointer-events-none"><div className="absolute top-0 right-1/4 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" /></div>
             <div className="relative">
-              <div className="w-20 h-20 mx-auto rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6 border border-white/20 cursor-pointer hover:scale-110 transition-transform">
+              <div className="w-20 h-20 mx-auto rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center mb-6 border border-white/20 cursor-pointer hover:scale-110 transition-transform" onClick={() => setIsVideoModalOpen(true)}>
                 <FiPlay size={32} className="text-secondary ml-1" />
               </div>
               <h2 className="text-2xl md:text-3xl font-display font-bold mb-3">Watch Our Campus Video Tour</h2>
               <p className="text-white/70 font-body max-w-xl mx-auto mb-6">A 5-minute guided walkthrough of our entire campus showcasing classrooms, labs, sports facilities, and more.</p>
-              <button className="btn bg-secondary text-white hover:bg-secondary-light shadow-lg">
+              <button onClick={() => setIsVideoModalOpen(true)} className="btn bg-secondary text-white hover:bg-secondary-light shadow-lg">
                 <FiPlay className="mr-1" /> Watch Video Tour
               </button>
             </div>
@@ -101,7 +102,26 @@ export default function VirtualTour() {
               </div>
             ))}
           </div>
+          </div>
         </section>
+
+        {/* Video Modal */}
+        {isVideoModalOpen && (
+          <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setIsVideoModalOpen(false)}>
+            <div className="relative w-full max-w-5xl aspect-video rounded-xl overflow-hidden shadow-2xl animate-fade-up" onClick={e => e.stopPropagation()}>
+              <button onClick={() => setIsVideoModalOpen(false)} className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 text-white rounded-full flex items-center justify-center hover:bg-black transition-colors">
+                <FiX size={24} />
+              </button>
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                title="Campus Tour Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        )}
       </main>
     </>
   );
