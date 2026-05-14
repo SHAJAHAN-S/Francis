@@ -26,8 +26,8 @@ export function OrganizationSchema() {
   return <Helmet><script type="application/ld+json">{JSON.stringify(schema)}</script></Helmet>;
 }
 
-export function EventSchema({ title, date, time, venue, description }: {
-  title: string; date: string; time: string; venue: string; description: string;
+export function EventSchema({ title, date, venue, description }: {
+  title: string; date: string; venue: string; description: string;
 }) {
   const schema = {
     '@context': 'https://schema.org',

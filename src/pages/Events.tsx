@@ -5,8 +5,6 @@ import { FiCalendar, FiClock, FiMapPin, FiDownload, FiX } from 'react-icons/fi';
 import { events } from '../data/events';
 import { formatDate, isFutureDate, getCategoryColor, downloadICS } from '../utils/helpers';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import SocialShare from '../components/common/SocialShare';
-import { EventSchema } from '../components/common/SchemaMarkup';
 
 export default function Events() {
   const [view, setView] = useState<'list' | 'calendar'>('list');
