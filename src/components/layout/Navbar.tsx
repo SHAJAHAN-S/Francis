@@ -65,7 +65,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50">
       {/* Top Bar */}
       <div className="bg-primary text-white text-sm hidden md:block">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-10">
           <div className="flex items-center gap-6">
             <a href="tel:+914147123456" className="flex items-center gap-2 hover:text-secondary transition-colors">
               <FiPhone size={14} />
@@ -101,8 +101,8 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Home">
               <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
@@ -119,7 +119,7 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav Links */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-2 ml-auto">
               {navLinks.map((link) => (
                 <div
                   key={link.label}
@@ -129,7 +129,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`px-3 py-2 font-label text-sm font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${
+                    className={`px-2 py-2 font-label text-[13px] font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${
                       isActive(link.path)
                         ? 'text-primary'
                         : 'text-gray-dark hover:text-primary'
