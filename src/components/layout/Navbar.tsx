@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown, FiGlobe, FiLogIn } from 'react-icons/fi';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import { useLanguage } from '../../i18n/LanguageContext';
 import type { NavLink } from '../../types';
 
 const navLinks: NavLink[] = [
@@ -36,18 +35,13 @@ const navLinks: NavLink[] = [
   { label: 'Contact', path: '/contact' },
 ];
 
-const navLabelsTamil: Record<string, string> = {
-  'Home': 'முகப்பு', 'About': 'எங்களைப் பற்றி', 'Academics': 'கல்வி',
-  'Admissions': 'சேர்க்கை', 'Faculty': 'ஆசிரியர்கள்', 'Gallery': 'படத் தொகுப்பு',
-  'News': 'செய்திகள்', 'Events': 'நிகழ்வுகள்', 'Contact': 'தொடர்பு',
-};
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
-  const { lang, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -65,7 +59,7 @@ export default function Navbar() {
     return location.pathname.startsWith(path.split('#')[0]);
   };
 
-  const getLabel = (label: string) => lang === 'ta' ? (navLabelsTamil[label] || label) : label;
+
 
   return (
     <header className="sticky top-0 z-50">
@@ -83,19 +77,10 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-xs font-label"
-              aria-label="Toggle language"
-            >
-              <FiGlobe size={12} />
-              <span>{lang === 'en' ? 'தமிழ்' : 'English'}</span>
-            </button>
             {/* Parent Login */}
             <Link to="/portal" className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/20 hover:bg-secondary/40 transition-colors text-xs font-label text-secondary">
               <FiLogIn size={12} />
-              <span>{lang === 'en' ? 'Parent Login' : 'உள்நுழைவு'}</span>
+              <span>Parent Login</span>
             </Link>
             {/* Divider */}
             <span className="w-px h-4 bg-white/20" />
@@ -153,7 +138,7 @@ export default function Navbar() {
                         : 'text-gray-dark hover:text-primary'
                     }`}
                   >
-                    {getLabel(link.label)}
+                    {link.label}
                     {link.children && <FiChevronDown size={14} className={`transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                     <span
                       className={`absolute bottom-0 left-3 right-3 h-0.5 bg-secondary transition-transform origin-left ${
@@ -182,10 +167,6 @@ export default function Navbar() {
 
             {/* Mobile Menu Button */}
             <div className="flex items-center gap-2 lg:hidden">
-              {/* Mobile Language Toggle */}
-              <button onClick={toggleLanguage} className="p-2 rounded-lg text-gray-dark hover:bg-gray-100 transition-colors" aria-label="Toggle language">
-                <FiGlobe size={20} />
-              </button>
               <button
                 className="p-2 rounded-lg text-gray-dark hover:bg-gray-100 transition-colors"
                 onClick={() => setIsOpen(!isOpen)}
