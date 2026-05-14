@@ -105,11 +105,8 @@ export default function Navbar() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Home">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
-                <svg viewBox="0 0 40 40" className="w-8 h-8">
-                  <path d="M20 4 L34 11 V25 C34 33 20 38 20 38 S6 33 6 25 V11 Z" fill="none" stroke="#C8922A" strokeWidth="1.5"/>
-                  <path d="M20 11 V29 M14 19 H26" stroke="#C8922A" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
+              <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+                <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-primary font-display font-bold text-lg leading-tight">
