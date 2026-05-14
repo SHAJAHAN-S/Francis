@@ -102,9 +102,7 @@ export default function VirtualTour() {
               </div>
             ))}
           </div>
-          </div>
         </section>
-
         {/* Video Modal */}
         {isVideoModalOpen && (
           <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4" onClick={() => setIsVideoModalOpen(false)}>

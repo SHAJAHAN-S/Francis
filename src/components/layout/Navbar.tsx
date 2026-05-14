@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown, FiGlobe, FiLogIn } from 'react-icons/fi';
+import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown, FiLogIn } from 'react-icons/fi';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import type { NavLink } from '../../types';
 
@@ -199,7 +199,7 @@ export default function Navbar() {
                     }`}
                     role="menuitem"
                   >
-                    {getLabel(link.label)}
+                    {link.label}
                   </Link>
                   {link.children && (
                     <button
@@ -230,10 +230,10 @@ export default function Navbar() {
             {/* Mobile Extra Links */}
             <div className="pt-4 mt-4 border-t border-gray-100 space-y-1">
               <Link to="/portal" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-primary bg-accent rounded-lg">
-                <FiLogIn size={16} /> {lang === 'en' ? 'Parent Login' : 'பெற்றோர் உள்நுழைவு'}
+                <FiLogIn size={16} /> Parent Login
               </Link>
               <Link to="/pay-fees" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-gray-dark hover:bg-gray-50 rounded-lg">
-                💰 {lang === 'en' ? 'Pay Fees Online' : 'ஆன்லைன் கட்டணம்'}
+                💰 Pay Fees Online
               </Link>
             </div>
             {/* Mobile Contact Info */}
