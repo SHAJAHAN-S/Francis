@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
-import { FiLock, FiUser, FiMail, FiEye, FiEyeOff, FiBookOpen, FiDollarSign, FiCalendar, FiClipboard, FiMessageSquare, FiLogOut, FiChevronRight } from 'react-icons/fi';
+import { FiLock, FiUser, FiBookOpen, FiDollarSign, FiCalendar, FiClipboard, FiMessageSquare, FiLogOut, FiChevronRight } from 'react-icons/fi';
 
 export default function Portal() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -132,7 +130,7 @@ export default function Portal() {
                   </div>
                   
                   <div className="relative">
-                    <input type={showPassword ? 'text' : 'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Password" required
                       className="w-full px-4 py-3 border border-gray-300 focus:border-primary outline-none font-body pr-10" />
                     <FiLock className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                   </div>
