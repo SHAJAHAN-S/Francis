@@ -35,7 +35,7 @@ export default function PayFees() {
         name: studentName,
       },
       theme: {
-        color: '#1A3C6E',
+        color: '#2172B8',
       },
     };
 

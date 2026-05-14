@@ -108,12 +108,14 @@ export default function Navbar() {
               <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
                 <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-success font-display font-bold text-lg leading-tight">
-                  St. Francis Matric Higher Secondary School
+              <div className="block">
+                <h1 className="text-success font-display font-bold text-base sm:text-xl leading-tight">
+                  <span className="sm:hidden">St. Francis</span>
+                  <span className="hidden sm:inline">St. Francis Matric Higher Secondary School</span>
                 </h1>
-                <p className="text-primary text-xs font-label tracking-wider uppercase font-bold">
-                  Assisi Nagar, Saram, Tindivanam
+                <p className="text-primary text-[10px] sm:text-xs font-label tracking-wider uppercase font-bold">
+                  <span className="sm:hidden">Assisi Nagar, Saram</span>
+                  <span className="hidden sm:inline">Assisi Nagar, Saram, Tindivanam</span>
                 </p>
               </div>
             </Link>
@@ -129,7 +131,7 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`px-2 py-2 font-label text-[13px] font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${
+                    className={`px-2 py-2 font-label text-sm font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${
                       isActive(link.path)
                         ? 'text-primary'
                         : 'text-gray-dark hover:text-primary'
