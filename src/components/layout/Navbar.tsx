@@ -110,10 +110,10 @@ export default function Navbar() {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-primary font-display font-bold text-lg leading-tight">
-                  St. Francis Mat. Hr. School
+                  St. Francis Matric Higher Secondary School
                 </h1>
                 <p className="text-gray-mid text-xs font-label tracking-wider uppercase">
-                  Saram, Tindivanam
+                  Assisi Nagar, Saram, Tindivanam
                 </p>
               </div>
             </Link>

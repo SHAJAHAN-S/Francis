@@ -20,9 +20,9 @@ export default function Hero() {
               <svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080">
                 <defs>
                   <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#1A3C6E"/>
-                    <stop offset="50%" style="stop-color:#0f2a4e"/>
-                    <stop offset="100%" style="stop-color:#1A3C6E"/>
+                    <stop offset="0%" style="stop-color:#2172B8"/>
+                    <stop offset="50%" style="stop-color:#00457E"/>
+                    <stop offset="100%" style="stop-color:#2172B8"/>
                   </linearGradient>
                 </defs>
                 <rect fill="url(#bg)" width="1920" height="1080"/>

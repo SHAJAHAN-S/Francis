@@ -42,10 +42,10 @@ export default function Footer() {
               </div>
               <div>
                 <h3 className="text-white font-display font-bold text-lg leading-tight">
-                  St. Francis
+                  St. Francis Matric
                 </h3>
                 <p className="text-gray-400 text-xs font-label tracking-wider uppercase">
-                  Mat. Hr. School
+                  Higher Secondary School
                 </p>
               </div>
             </div>
