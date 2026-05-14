@@ -9,6 +9,7 @@
     "types": [
       "vite/client"
     ],
+    "jsx": "react-jsx",
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
