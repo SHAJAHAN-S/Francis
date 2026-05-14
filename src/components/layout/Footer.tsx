@@ -38,7 +38,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
-                <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain" />
+                <img src="/st.francis-image.png" alt="St. Francis Logo" className="w-full h-full object-contain" />
               </div>
               <div>
                 <h3 className="text-white font-display font-bold text-lg leading-tight">

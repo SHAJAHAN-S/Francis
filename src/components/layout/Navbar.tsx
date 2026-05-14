@@ -106,7 +106,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Home">
               <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
-                <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
+                <img src="/st.francis-image.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-primary font-display font-bold text-lg leading-tight">
