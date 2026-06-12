@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { FiDownload, FiDollarSign, FiCalendar, FiFileText, FiClock, FiExternalLink } from 'react-icons/fi';
+import { FiDownload, FiDollarSign, FiCalendar, FiFileText, FiClock, FiVideo } from 'react-icons/fi';
 import Hero from '../components/sections/Hero';
 import Stats from '../components/sections/Stats';
 import Announcements from '../components/sections/Announcements';
@@ -15,7 +15,7 @@ const quickLinks = [
   { icon: <FiCalendar size={24} />, label: 'Academic Calendar', desc: '2025-26 calendar', path: '/academics#curriculum', color: 'from-purple-500 to-violet-600' },
   { icon: <FiFileText size={24} />, label: 'Holiday List', desc: 'Annual holiday schedule', path: '/events', color: 'from-orange-500 to-amber-600' },
   { icon: <FiClock size={24} />, label: 'Exam Timetable', desc: 'Upcoming exam schedule', path: '/academics#curriculum', color: 'from-rose-500 to-pink-600' },
-  { icon: <FiExternalLink size={24} />, label: 'Parent Portal', desc: 'Login to dashboard', path: '/portal', color: 'from-cyan-500 to-teal-600' },
+  { icon: <FiVideo size={24} />, label: 'Virtual Tour', desc: 'Explore our campus', path: '/virtual-tour', color: 'from-cyan-500 to-teal-600' },
 ];
 
 export default function Home() {

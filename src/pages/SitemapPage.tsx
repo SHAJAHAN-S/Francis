@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FiHome, FiInfo, FiBookOpen, FiUserPlus, FiUsers, FiImage, FiFileText, FiCalendar, FiPhone, FiHeart, FiEdit3, FiVideo, FiLock, FiDollarSign, FiShield, FiMap } from 'react-icons/fi';
+import { FiHome, FiInfo, FiBookOpen, FiUserPlus, FiUsers, FiImage, FiFileText, FiCalendar, FiPhone, FiHeart, FiEdit3, FiVideo, FiDollarSign, FiShield, FiMap } from 'react-icons/fi';
 
 const siteLinks = [
   { section: 'Main Pages', links: [
@@ -13,7 +13,6 @@ const siteLinks = [
   { section: 'People & Community', links: [
     { label: 'Faculty & Staff', path: '/faculty', icon: <FiUsers size={18} />, desc: 'Meet our dedicated teachers' },
     { label: 'Alumni Network', path: '/alumni', icon: <FiHeart size={18} />, desc: 'Alumni stories and registration' },
-    { label: 'Parent Portal', path: '/portal', icon: <FiLock size={18} />, desc: 'Login to parent dashboard' },
   ]},
   { section: 'Media & Content', links: [
     { label: 'Photo Gallery', path: '/gallery', icon: <FiImage size={18} />, desc: 'Campus, events, and activity photos' },

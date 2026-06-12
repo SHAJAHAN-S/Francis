@@ -22,7 +22,6 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
     'nav.alumni': 'Alumni',
     'nav.blog': 'Blog',
-    'nav.parentLogin': 'Parent Login',
     // Hero
     'hero.badge': 'Affiliated to Tamil Nadu State Board',
     'hero.title1': 'Nurturing',
@@ -110,7 +109,6 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'தொடர்பு',
     'nav.alumni': 'முன்னாள் மாணவர்',
     'nav.blog': 'வலைப்பதிவு',
-    'nav.parentLogin': 'பெற்றோர் உள்நுழைவு',
     // Hero
     'hero.badge': 'தமிழ்நாடு மாநில வாரியத்துடன் இணைக்கப்பட்டது',
     'hero.title1': 'சிறப்பை',

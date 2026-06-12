@@ -3,6 +3,8 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { FiBookOpen, FiDownload } from 'react-icons/fi';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import TimetableDownload from '../components/common/TimetableDownload';
+import SyllabusDownload from '../components/common/SyllabusDownload';
 
 const levels = ['Primary (I–V)', 'Middle (VI–VIII)', 'High School (IX–X)', 'Hr. Sec. (XI–XII)'];
 
@@ -100,10 +102,10 @@ export default function Academics() {
                   <table className="w-full text-sm"><thead><tr className="border-b border-gray-200">
                     <th className="py-2 text-left font-label text-gray-mid">Marks</th><th className="py-2 text-left font-label text-gray-mid">Grade</th>
                   </tr></thead><tbody className="font-body text-gray-dark">
-                    {[['91–100','A1'],['81–90','A2'],['71–80','B1'],['61–70','B2'],['51–60','C1'],['41–50','C2'],['33–40','D'],['Below 33','E (Fail)']].map(([r,g])=>(
-                      <tr key={r} className="border-b border-gray-50"><td className="py-2">{r}</td><td className="py-2 font-semibold">{g}</td></tr>
-                    ))}
-                  </tbody></table>
+                      {[['91–100', 'A1'], ['81–90', 'A2'], ['71–80', 'B1'], ['61–70', 'B2'], ['51–60', 'C1'], ['41–50', 'C2'], ['33–40', 'D'], ['Below 33', 'E (Fail)']].map(([r, g]) => (
+                        <tr key={r} className="border-b border-gray-50"><td className="py-2">{r}</td><td className="py-2 font-semibold">{g}</td></tr>
+                      ))}
+                    </tbody></table>
                 </div>
               </div>
             </div>
@@ -112,7 +114,7 @@ export default function Academics() {
               <div className="card p-8 border border-gray-100">
                 <h3 className="font-display font-bold text-primary text-lg mb-4">Co-curricular Activities</h3>
                 <div className="grid grid-cols-2 gap-3">
-                  {['Literary Club','Science Club','Math Club','Eco Club','Sports Academy','Art & Craft','Music & Dance','Scout & Guide','Debate Society','Quiz Team','Computer Club','Social Service'].map(a=>(
+                  {['Literary Club', 'Science Club', 'Math Club', 'Eco Club', 'Sports Academy', 'Art & Craft', 'Music & Dance', 'Scout & Guide', 'Debate Society', 'Quiz Team', 'Computer Club', 'Social Service'].map(a => (
                     <div key={a} className="flex items-center gap-2 text-sm text-gray-dark font-body"><span className="w-1.5 h-1.5 rounded-full bg-secondary" />{a}</div>
                   ))}
                 </div>
@@ -123,6 +125,11 @@ export default function Academics() {
                 <p className="text-gray-mid font-body text-sm mb-6">Download the complete 2025-26 academic calendar</p>
                 <a href="/academic-calendar.pdf" download className="btn btn-primary">Download PDF</a>
               </div>
+            </div>
+
+            <div className="mt-12 grid md:grid-cols-2 gap-6">
+              <TimetableDownload />
+              <SyllabusDownload />
             </div>
           </div>
         </div>

@@ -13,7 +13,6 @@ const shortcuts: Record<string, string> = {
   'g+t': '/contact',
   'g+l': '/alumni',
   'g+b': '/blog',
-  'g+p': '/portal',
 };
 
 export function useHotkeys() {

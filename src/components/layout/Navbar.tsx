@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown, FiLogIn } from 'react-icons/fi';
+import { FiMenu, FiX, FiPhone, FiMail, FiChevronDown } from 'react-icons/fi';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import type { NavLink } from '../../types';
 
@@ -77,13 +77,6 @@ export default function Navbar() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            {/* Parent Login */}
-            <Link to="/portal" className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary/20 hover:bg-secondary/40 transition-colors text-xs font-label text-secondary">
-              <FiLogIn size={12} />
-              <span>Parent Login</span>
-            </Link>
-            {/* Divider */}
-            <span className="w-px h-4 bg-white/20" />
             {/* Social Links */}
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-secondary transition-colors"><FaFacebookF size={14} /></a>
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:text-secondary transition-colors"><FaYoutube size={14} /></a>
@@ -95,9 +88,8 @@ export default function Navbar() {
 
       {/* Main Navigation */}
       <nav
-        className={`bg-white transition-all duration-300 ${
-          scrolled ? 'shadow-lg' : 'shadow-sm'
-        }`}
+        className={`bg-white transition-all duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'
+          }`}
         role="navigation"
         aria-label="Main navigation"
       >
@@ -131,18 +123,16 @@ export default function Navbar() {
                 >
                   <Link
                     to={link.path}
-                    className={`px-2 py-2 font-label text-sm font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${
-                      isActive(link.path)
-                        ? 'text-primary'
-                        : 'text-gray-dark hover:text-primary'
-                    }`}
+                    className={`px-2 py-2 font-label text-sm font-medium tracking-wide transition-colors relative group flex items-center gap-1 ${isActive(link.path)
+                      ? 'text-primary'
+                      : 'text-gray-dark hover:text-primary'
+                      }`}
                   >
                     {link.label}
                     {link.children && <FiChevronDown size={14} className={`transition-transform ${activeDropdown === link.label ? 'rotate-180' : ''}`} />}
                     <span
-                      className={`absolute bottom-0 left-3 right-3 h-0.5 bg-secondary transition-transform origin-left ${
-                        isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                      }`}
+                      className={`absolute bottom-0 left-3 right-3 h-0.5 bg-secondary transition-transform origin-left ${isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                        }`}
                     />
                   </Link>
                   {/* Dropdown */}
@@ -180,9 +170,8 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? 'max-h-[700px] border-t border-gray-100' : 'max-h-0'
-          }`}
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[700px] border-t border-gray-100' : 'max-h-0'
+            }`}
           role="menu"
         >
           <div className="px-4 py-4 space-y-1 bg-white">
@@ -191,11 +180,10 @@ export default function Navbar() {
                 <div className="flex items-center">
                   <Link
                     to={link.path}
-                    className={`flex-1 px-4 py-3 rounded-lg font-label text-sm font-medium transition-colors ${
-                      isActive(link.path)
-                        ? 'bg-accent text-primary'
-                        : 'text-gray-dark hover:bg-gray-50'
-                    }`}
+                    className={`flex-1 px-4 py-3 rounded-lg font-label text-sm font-medium transition-colors ${isActive(link.path)
+                      ? 'bg-accent text-primary'
+                      : 'text-gray-dark hover:bg-gray-50'
+                      }`}
                     role="menuitem"
                   >
                     {link.label}
@@ -228,9 +216,6 @@ export default function Navbar() {
             ))}
             {/* Mobile Extra Links */}
             <div className="pt-4 mt-4 border-t border-gray-100 space-y-1">
-              <Link to="/portal" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-primary bg-accent rounded-lg">
-                <FiLogIn size={16} /> Parent Login
-              </Link>
               <Link to="/pay-fees" className="flex items-center gap-3 px-4 py-3 text-sm font-label font-medium text-gray-dark hover:bg-gray-50 rounded-lg">
                 💰 Pay Fees Online
               </Link>

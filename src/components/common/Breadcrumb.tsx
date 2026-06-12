@@ -14,7 +14,6 @@ const pathLabels: Record<string, string> = {
   alumni: 'Alumni',
   blog: 'Blog',
   'virtual-tour': 'Virtual Tour',
-  portal: 'Parent Portal',
   'pay-fees': 'Pay Fees',
   'privacy-policy': 'Privacy Policy',
   sitemap: 'Sitemap',

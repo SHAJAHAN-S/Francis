@@ -26,7 +26,6 @@ export default function Footer() {
     { label: 'Events', path: '/events' },
     { label: 'Alumni Network', path: '/alumni' },
     { label: 'Virtual Tour', path: '/virtual-tour' },
-    { label: 'Parent Portal', path: '/portal' },
   ];
 
   return (

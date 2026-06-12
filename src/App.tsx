@@ -29,7 +29,6 @@ const Alumni = lazy(() => import('./pages/Alumni'));
 const BlogList = lazy(() => import('./pages/Blog').then(m => ({ default: m.BlogList })));
 const BlogDetail = lazy(() => import('./pages/Blog').then(m => ({ default: m.BlogDetail })));
 const VirtualTour = lazy(() => import('./pages/VirtualTour'));
-const Portal = lazy(() => import('./pages/Portal'));
 const PayFees = lazy(() => import('./pages/PayFees'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const SitemapPage = lazy(() => import('./pages/SitemapPage'));
@@ -65,7 +64,6 @@ function AppContent() {
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route path="/virtual-tour" element={<VirtualTour />} />
-            <Route path="/portal" element={<Portal />} />
             <Route path="/pay-fees" element={<PayFees />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/sitemap" element={<SitemapPage />} />
