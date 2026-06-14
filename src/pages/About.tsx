@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { FiEye, FiTarget, FiAward, FiUsers, FiBookOpen, FiMonitor, FiHome } from 'react-icons/fi';
 import { motion } from 'framer-motion';
@@ -34,8 +35,43 @@ const mgmt = [
 ];
 
 export default function About() {
-  const [activeTab, setActiveTab] = useState(0);
+  const { hash } = useLocation();
+
+  const hashToTab: Record<string, number> = {
+    '#history': 0,
+    '#vision': 1,
+    '#principal': 2,
+    '#infrastructure': 3,
+    '#achievements': 4,
+  };
+
+  const [activeTab, setActiveTab] = useState(() => {
+    if (hash && hashToTab[hash] !== undefined) {
+      return hashToTab[hash];
+    }
+    return 0;
+  });
+
   const { ref, isVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    if (hash && hashToTab[hash] !== undefined) {
+      setActiveTab(hashToTab[hash]);
+
+      const element = document.getElementById('about-tabs');
+      if (element) {
+        setTimeout(() => {
+          const elementRect = element.getBoundingClientRect();
+          const absoluteElementTop = elementRect.top + window.scrollY;
+          // Offset of 96px for the sticky header
+          window.scrollTo({
+            top: absoluteElementTop - 96,
+            behavior: 'smooth',
+          });
+        }, 150);
+      }
+    }
+  }, [hash]);
 
   return (
     <>
@@ -58,7 +94,7 @@ export default function About() {
         </section>
 
         {/* Tabs */}
-        <section className="bg-white border-b border-gray-100 sticky top-[80px] z-30">
+        <section id="about-tabs" className="bg-white border-b border-gray-100 sticky top-[80px] z-30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex overflow-x-auto gap-0 -mb-px">
               {tabs.map((tab, i) => (
@@ -152,13 +188,13 @@ export default function About() {
                       <th className="px-6 py-3 text-left font-label text-sm">Name</th>
                       <th className="px-6 py-3 text-left font-label text-sm">Designation</th>
                     </tr></thead><tbody>
-                      {mgmt.map((m, i) => (
-                        <tr key={m.name} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                          <td className="px-6 py-4 font-body font-semibold text-gray-dark">{m.name}</td>
-                          <td className="px-6 py-4 font-body text-gray-mid">{m.role}</td>
-                        </tr>
-                      ))}
-                    </tbody></table>
+                        {mgmt.map((m, i) => (
+                          <tr key={m.name} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                            <td className="px-6 py-4 font-body font-semibold text-gray-dark">{m.name}</td>
+                            <td className="px-6 py-4 font-body text-gray-mid">{m.role}</td>
+                          </tr>
+                        ))}
+                      </tbody></table>
                   </div>
                 </div>
               </div>

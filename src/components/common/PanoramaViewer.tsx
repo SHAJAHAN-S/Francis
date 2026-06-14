@@ -12,9 +12,9 @@ export default function PanoramaViewer({ src, onClose }: { src: string; onClose:
         const el = containerRef.current
         if (!el) return
         const handlePointerDown = (e: PointerEvent) => {
-            dragging.current = true
-            lastX.current = e.clientX
-                (e.target as Element).setPointerCapture((e as any).pointerId)
+            dragging.current = true;
+            lastX.current = e.clientX;
+            (e.target as Element).setPointerCapture((e as any).pointerId);
         }
         const handlePointerMove = (e: PointerEvent) => {
             if (!dragging.current) return

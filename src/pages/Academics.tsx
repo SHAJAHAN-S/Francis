@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { FiBookOpen, FiDownload } from 'react-icons/fi';
@@ -28,8 +29,57 @@ const curricula: Record<string, { subjects: string[]; highlights: string[] }> = 
 };
 
 export default function Academics() {
-  const [activeLevel, setActiveLevel] = useState(0);
+  const { hash } = useLocation();
+
+  const hashToLevel: Record<string, number> = {
+    '#primary': 0,
+    '#middle': 1,
+    '#high': 2,
+    '#hrsec': 3,
+  };
+
+  const [activeLevel, setActiveLevel] = useState(() => {
+    if (hash && hashToLevel[hash] !== undefined) {
+      return hashToLevel[hash];
+    }
+    return 0;
+  });
+
   const { ref, isVisible } = useScrollAnimation();
+
+  useEffect(() => {
+    if (hash) {
+      if (hashToLevel[hash] !== undefined) {
+        setActiveLevel(hashToLevel[hash]);
+        const element = document.getElementById('academics-tabs');
+        if (element) {
+          setTimeout(() => {
+            const elementRect = element.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.scrollY;
+            // Offset of 96px for the sticky header
+            window.scrollTo({
+              top: absoluteElementTop - 96,
+              behavior: 'smooth',
+            });
+          }, 150);
+        }
+      } else if (hash === '#curriculum') {
+        const element = document.getElementById('curriculum');
+        if (element) {
+          setTimeout(() => {
+            const elementRect = element.getBoundingClientRect();
+            const absoluteElementTop = elementRect.top + window.scrollY;
+            // Offset of 152px (96px header + 56px sticky tabs bar)
+            window.scrollTo({
+              top: absoluteElementTop - 152,
+              behavior: 'smooth',
+            });
+          }, 150);
+        }
+      }
+    }
+  }, [hash]);
+
   const current = curricula[levels[activeLevel]];
 
   return (
@@ -50,7 +100,7 @@ export default function Academics() {
           </div>
         </section>
 
-        <section className="bg-white border-b sticky top-[80px] z-30" role="tablist">
+        <section id="academics-tabs" className="bg-white border-b sticky top-[80px] z-30" role="tablist">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex overflow-x-auto gap-0 -mb-px">
               {levels.map((level, i) => (

@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
-import { useLanguage } from '../../i18n/LanguageContext';
 
 const FOUNDING_YEAR = 1994;
 
 export default function Hero() {
-  const { t } = useLanguage();
   const yearsOfExcellence = new Date().getFullYear() - FOUNDING_YEAR;
 
   return (
@@ -58,7 +56,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
             <span className="text-white/90 text-sm font-label tracking-wider">
-              {t('hero.badge')}
+              Affiliated to Tamil Nadu State Board
             </span>
           </motion.div>
 
@@ -69,9 +67,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold text-white leading-tight mb-6"
           >
-            {t('hero.title1')}{' '}
-            <span className="text-secondary">{t('hero.title2')}</span>{' '}
-            {t('hero.title3')}
+            Nurturing <span className="text-secondary">Excellence</span> Since 1994
           </motion.h1>
 
           {/* Subtitle */}
@@ -81,7 +77,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-lg sm:text-xl text-white/80 font-body leading-relaxed mb-10 max-w-2xl"
           >
-            {t('hero.subtitle')}
+            St. Francis Matriculation Higher Secondary School, Saram, Tindivanam — Where tradition meets modern education, shaping tomorrow's leaders with values, knowledge, and character.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -95,14 +91,14 @@ export default function Hero() {
               to="/admissions"
               className="btn bg-secondary text-white hover:bg-secondary-light shadow-lg shadow-secondary/30 hover:shadow-xl hover:shadow-secondary/40 text-base px-8 py-4"
             >
-              {t('hero.cta1')}
+              Apply for Admission
               <FiArrowRight className="ml-1" />
             </Link>
             <Link
               to="/about"
               className="btn border-2 border-white/40 text-white hover:bg-white/10 backdrop-blur-sm text-base px-8 py-4"
             >
-              {t('hero.cta2')}
+              Explore Our School
             </Link>
             <a
               href="/school-prospectus.pdf"
@@ -110,7 +106,7 @@ export default function Hero() {
               className="btn border-2 border-secondary/40 text-secondary hover:bg-secondary/10 backdrop-blur-sm text-base px-6 py-4"
             >
               <FiDownload className="mr-1" />
-              {t('hero.prospectus')}
+              Download Prospectus
             </a>
           </motion.div>
 

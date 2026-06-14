@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import { FiHome, FiInfo, FiBookOpen, FiUserPlus, FiUsers, FiImage, FiFileText, FiCalendar, FiPhone, FiHeart, FiEdit3, FiVideo, FiDollarSign, FiShield, FiMap } from 'react-icons/fi';
+import { FiHome, FiInfo, FiBookOpen, FiUserPlus, FiUsers, FiImage, FiFileText, FiCalendar, FiPhone, FiHeart, FiEdit3, FiVideo, FiShield, FiMap } from 'react-icons/fi';
 
 const siteLinks = [
   { section: 'Main Pages', links: [
@@ -23,7 +23,6 @@ const siteLinks = [
   ]},
   { section: 'Services', links: [
     { label: 'Contact Us', path: '/contact', icon: <FiPhone size={18} />, desc: 'Get in touch with us' },
-    { label: 'Pay Fees Online', path: '/pay-fees', icon: <FiDollarSign size={18} />, desc: 'Online fee payment portal' },
     { label: 'Privacy Policy', path: '/privacy-policy', icon: <FiShield size={18} />, desc: 'Our privacy practices' },
     { label: 'Sitemap', path: '/sitemap', icon: <FiMap size={18} />, desc: 'Complete site navigation' },
   ]},

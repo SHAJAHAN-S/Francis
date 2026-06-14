@@ -1,11 +1,9 @@
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaYoutube, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
-import { useLanguage } from '../../i18n/LanguageContext';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
 
   const quickLinks = [
     { label: 'Home', path: '/' },
@@ -20,7 +18,6 @@ export default function Footer() {
   const resources = [
     { label: 'Academic Calendar', path: '/academics#curriculum' },
     { label: 'Fee Structure', path: '/admissions#fees' },
-    { label: 'Pay Fees Online', path: '/pay-fees' },
     { label: 'News & Updates', path: '/news' },
     { label: 'Blog & Resources', path: '/blog' },
     { label: 'Events', path: '/events' },
@@ -75,7 +72,7 @@ export default function Footer() {
           {/* Column 2: Quick Links */}
           <div>
             <h4 className="text-white font-display font-semibold text-lg mb-6 relative">
-              {t('footer.quickLinks')}
+              Quick Links
               <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-secondary -mb-2"></span>
             </h4>
             <ul className="space-y-3 mt-4">
@@ -96,7 +93,7 @@ export default function Footer() {
           {/* Column 3: Resources */}
           <div>
             <h4 className="text-white font-display font-semibold text-lg mb-6 relative">
-              {t('footer.resources')}
+              Resources
               <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-secondary -mb-2"></span>
             </h4>
             <ul className="space-y-3 mt-4">
@@ -117,7 +114,7 @@ export default function Footer() {
           {/* Column 4: Contact Info */}
           <div>
             <h4 className="text-white font-display font-semibold text-lg mb-6 relative">
-              {t('footer.contactUs')}
+              Contact Us
               <span className="absolute bottom-0 left-0 w-10 h-0.5 bg-secondary -mb-2"></span>
             </h4>
             <ul className="space-y-4 mt-4">
@@ -157,11 +154,11 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © {currentYear} St. Francis Mat. Hr. School, Saram. {t('footer.rights')}
+            © {currentYear} St. Francis Mat. Hr. School, Saram. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
-            <Link to="/privacy-policy" className="hover:text-secondary transition-colors">{t('footer.privacy')}</Link>
-            <Link to="/sitemap" className="hover:text-secondary transition-colors">{t('footer.sitemap')}</Link>
+            <Link to="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</Link>
+            <Link to="/sitemap" className="hover:text-secondary transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>
