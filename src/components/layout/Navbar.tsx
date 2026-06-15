@@ -95,17 +95,16 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 flex-shrink-0" aria-label="Home">
-              <div className="w-16 h-16 flex items-center justify-center flex-shrink-0">
+            <Link to="/" className="flex items-center gap-3.5 flex-shrink-0 group" aria-label="Home">
+              <div className="w-16 h-16 flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105 duration-300 pt-1">
                 <img src="/logo.png" alt="St. Francis Logo" className="w-full h-full object-contain drop-shadow-md" />
               </div>
-              <div className="block">
+              <div className="flex flex-col justify-center">
                 <h1 className="text-success font-display font-bold text-base sm:text-xl leading-tight">
                   <span className="sm:hidden">St. Francis</span>
                   <span className="hidden sm:inline">St. Francis Matric Higher Secondary School</span>
                 </h1>
-                <p className="text-primary text-[10px] sm:text-xs font-label tracking-wider uppercase font-bold">
+                <p className="text-primary text-[10px] sm:text-xs font-label tracking-wider uppercase font-bold mt-1">
                   <span className="sm:hidden">Assisi Nagar, Saram</span>
                   <span className="hidden sm:inline">Assisi Nagar, Saram, Tindivanam</span>
                 </p>

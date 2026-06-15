@@ -88,7 +88,7 @@ export default function Admissions() {
         <title>Admissions — ST. Francis Mat. Hr. School</title>
         <meta name="description" content="Admission process, eligibility, fees, and inquiry form for St. Francis School." />
         <meta property="og:title" content="Admissions — St. Francis Mat. Hr. School" />
-        <meta property="og:description" content="Admissions Open 2025-26. Apply now for Classes I to XII." />
+        <meta property="og:description" content="Admissions Open 2026-27. Apply now for Classes I to XII." />
       </Helmet>
       <FAQSchema faqs={faqs} />
       <main>
@@ -98,7 +98,7 @@ export default function Admissions() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="inline-flex items-center gap-2 bg-secondary/20 rounded-full px-4 py-2 mb-4">
                 <span className="w-2 h-2 bg-secondary rounded-full animate-pulse" />
-                <span className="text-secondary font-label text-sm font-semibold">ADMISSIONS OPEN 2025-26</span>
+                <span className="text-secondary font-label text-sm font-semibold">ADMISSIONS OPEN 2026-27</span>
               </div>
               <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">Admissions</h1>
               <p className="text-white/70 text-lg font-body max-w-2xl">Join our family — begin your child's journey of excellence.</p>

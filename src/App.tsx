@@ -10,6 +10,7 @@ import BackToTop from './components/common/BackToTop';
 import { OrganizationSchema } from './components/common/SchemaMarkup';
 import { useHotkeys, KeyboardShortcutsModal } from './hooks/useHotkeys';
 import PageSkeleton from './components/common/SkeletonLoader';
+import AdmissionPopup from './components/common/AdmissionPopup';
 
 // Lazy-loaded pages
 const Home = lazy(() => import('./pages/Home'));
@@ -72,6 +73,7 @@ function AppContent() {
       <WhatsAppFloat />
       <BackToTop />
       <KeyboardShortcutsModal />
+      <AdmissionPopup />
     </>
   );
 }

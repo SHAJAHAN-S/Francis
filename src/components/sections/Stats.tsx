@@ -11,6 +11,7 @@ const stats: (StatItem & { iconComponent: React.ReactNode })[] = [
   { label: 'Students Enrolled', value: 1200, suffix: '+', icon: 'users', iconComponent: <FiUsers size={32} /> },
   { label: 'Qualified Faculty', value: 50, suffix: '+', icon: 'book', iconComponent: <FiBookOpen size={32} /> },
   { label: '10th Board Pass %', value: 98, suffix: '%', icon: 'star', iconComponent: <FiStar size={32} /> },
+  { label: '12th Board Pass %', value: 98, suffix: '%', icon: 'star', iconComponent: <FiStar size={32} /> },
   { label: 'Extracurricular Clubs', value: 15, suffix: '+', icon: 'activity', iconComponent: <FiActivity size={32} /> },
 ];
 
@@ -52,7 +53,7 @@ export default function Stats() {
           </h2>
           <div className="w-16 h-1 bg-secondary mx-auto rounded-full" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-6">
           {stats.map((stat, index) => (
             <StatCard key={stat.label} stat={stat} isVisible={isVisible} index={index} />
           ))}

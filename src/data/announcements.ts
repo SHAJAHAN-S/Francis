@@ -3,8 +3,8 @@ import type { Announcement } from '../types';
 export const announcements: Announcement[] = [
   {
     id: 1,
-    title: 'Admissions Open for 2025-2026 Academic Year',
-    date: '2025-03-01',
+    title: 'Admissions Open for 2026-2027 Academic Year',
+    date: '2026-03-01',
     category: 'Admission',
     content: 'Applications are now being accepted for classes I through XII for the upcoming academic year. Early bird discount available until March 31st.',
     isNew: true,

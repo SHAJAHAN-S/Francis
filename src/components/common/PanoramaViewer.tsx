@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { FiMaximize, FiX, FiZoomIn, FiZoomOut } from 'react-icons/fi'
+import { FiX, FiZoomIn, FiZoomOut } from 'react-icons/fi'
 
 export default function PanoramaViewer({ src, onClose }: { src: string; onClose: () => void }) {
     const containerRef = useRef<HTMLDivElement | null>(null)

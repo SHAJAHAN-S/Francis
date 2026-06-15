@@ -11,7 +11,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const quickLinks = [
   { icon: <FiDownload size={24} />, label: 'Admission Form', desc: 'Download application form', path: '/admissions', color: 'from-blue-500 to-primary' },
   { icon: <FiImage size={24} />, label: 'Photo Gallery', desc: 'View school gallery', path: '/gallery', color: 'from-green-500 to-emerald-600' },
-  { icon: <FiCalendar size={24} />, label: 'Academic Calendar', desc: '2025-26 calendar', path: '/academics#curriculum', color: 'from-purple-500 to-violet-600' },
+  { icon: <FiCalendar size={24} />, label: 'Academic Calendar', desc: '2026-27 calendar', path: '/academics#curriculum', color: 'from-purple-500 to-violet-600' },
   { icon: <FiFileText size={24} />, label: 'Holiday List', desc: 'Annual holiday schedule', path: '/events', color: 'from-orange-500 to-amber-600' },
   { icon: <FiClock size={24} />, label: 'Exam Timetable', desc: 'Upcoming exam schedule', path: '/academics#curriculum', color: 'from-rose-500 to-pink-600' },
   { icon: <FiVideo size={24} />, label: 'Virtual Tour', desc: 'Explore our campus', path: '/virtual-tour', color: 'from-cyan-500 to-teal-600' },
@@ -26,7 +26,7 @@ export default function Home() {
         <title>ST. Francis Mat. Hr. School | Saram, Tindivanam — Nurturing Excellence</title>
         <meta name="description" content="St. Francis Matriculation Higher Secondary School, Saram, Tindivanam. Affiliated to Tamil Nadu State Board. Nurturing excellence in education since 1994." />
         <meta property="og:title" content="ST. Francis Mat. Hr. School | Saram, Tindivanam" />
-        <meta property="og:description" content="Nurturing Excellence in Education since 1994. Admissions Open for 2025-26." />
+        <meta property="og:description" content="Nurturing Excellence in Education since 1994. Admissions Open for 2026-27." />
         <meta property="og:type" content="website" />
       </Helmet>
 
@@ -82,7 +82,7 @@ export default function Home() {
               Begin Your Child's Journey with Us
             </h2>
             <p className="text-white/80 text-lg mb-8 font-body">
-              Admissions are open for the academic year 2025-2026. Join our family of 1200+ happy students.
+              Admissions are open for the academic year 2026-2027. Join our family of 1200+ happy students.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/admissions" className="btn bg-secondary text-white hover:bg-secondary-light shadow-lg text-base px-8 py-4">

@@ -172,7 +172,7 @@ export default function Academics() {
               <div className="card p-8 border border-gray-100 flex flex-col items-center justify-center text-center">
                 <FiDownload size={40} className="text-primary mb-4" />
                 <h3 className="font-display font-bold text-primary text-lg mb-2">Academic Calendar</h3>
-                <p className="text-gray-mid font-body text-sm mb-6">Download the complete 2025-26 academic calendar</p>
+                <p className="text-gray-mid font-body text-sm mb-6">Download the complete 2026-27 academic calendar</p>
                 <a href="/academic-calendar.pdf" download className="btn btn-primary">Download PDF</a>
               </div>
             </div>
